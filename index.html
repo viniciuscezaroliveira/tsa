@@ -19,94 +19,92 @@
 
 
         <div class="header__page">
-            <p>Cadastro</p>
+            <p class="header__title">Cadastro</p>
         </div>
 
 
         <div class="form__page">
             <form action="" method="post">
                 <div>
-                    <label for="name">Nome</label>
+                    <label for="name" class="formtitle">Nome</label>
                     <input type="text" name="" class="form__input" id="name">
 
                 </div>
                 <div>
-                    <label for="name">Email</label>
+                    <label for="name" class="formtitle">Email</label>
                     <input type="text" name="" class="form__input" id="email">
 
                 </div>
                 <div>
-                    <label for="name">CPF</label>
+                    <label for="name" class="formtitle">CPF</label>
                     <input type="text" name="" class="form__input" id="cpf">
 
                 </div>
-                <div>
-                    <div>
-                        <label for="address">Endereco</label>
-                        <input type="text" name="" class="form__input" id="address" placeholder="Rua, Número e Bairro">
+                <div class="row">
+                    <div class="col-left">
+                        <label for="address" class="formtitle">Endereco</label>
+                        <input type="text" name="" class="form__input formcol formsubtitle" id="address" placeholder="Rua, Número e Bairro">
 
                     </div>
-                    <div>
-                        <label for="uf">Estado</label>
-                        <select name="" class="form__input" id="uf">
-                            <option value="">Selecione o Estado</option>
-                            <option value="">MG</option>
+                    <div class="col-right">
+                        <label for="uf" class="formtitle">Estado</label>
+                        <select name="" class="form__input formcol formsubtitle" id="uf">
+                            <option value="" class="formsubtitle">Selecione o Estado</option>
+                            <option value="" class="formsubtitle">MG</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-left">
+                        <label for="cep" class="formtitle">Cep</label>
+                        <input type="text" name="" class="form__input formcol formsubtitle" id="cep" placeholder="22.222-000">
+
+                    </div>
+                    <div class="col-right">
+                        <label for="name" class="formtitle">Cidade</label>
+                        <select name="" class="form__input formcol formsubtitle" id="">
+                            <option value="" class="formsubtitle">Selecione a Cidade</option>
+                            <option value="" class="formsubtitle">MG</option>
                         </select>
 
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <label for="cep">Cep</label>
-                        <input type="text" name="" class="form__input" id="cep" placeholder="22.222-000">
-
-                    </div>
-                    <div>
-                        <label for="name">Cidade</label>
-                        <select name="" class="form__input" id="">
-                            <option value="">Selecione a Cidade</option>
-                            <option value="">MG</option>
-                        </select>
-
-                    </div>
-                </div>
 
                 <div>
 
 
                     <div>
-                        <label for="">Forma de pagamento</label>
-                        <hr>
+                        <label for="" class="payamenttitle">Forma de pagamento</label>
+                        <hr class="divisor">
                     </div>
 
 
                     <div>
-                        <div>
+                        <div class="col-left">
                             <label for="payament_form_credit">Cartão de Crédito</label>
                             <input type="radio" id="payament_form_credit" value="credit" name="payament_form">
-
                         </div>
-                        <div>
+                        <div class="col-right">
                             <label for="payament_form_debit">Cartão de Débito</label>
                             <input type="radio" id="payament_form_debit" value="debit" name="payament_form">
                         </div>
                     </div>
                     <div>
                         <div>
-                            <div>
+                            <div class="col-left">
                                 <label for="card__name">Nome do Cartão</label>
-                                <input type="text" id="card__name" placeholder="Nome impresso no cartão">
+                                <input type="text" id="card__name" class="form__input formcol formsubtitle" placeholder="Nome impresso no cartão">
                             </div>
-                            <div>
+                            <div class="col-right">
                                 <label for="expiration__date">Data de expiração</label>
-                                <div>
-                                    <select name="" class="form__input" id="">
+                                <div class="col-left">
+                                    <select name="" class="form__input formcol formsubtitle cardexp" id="">
                                         <option value="">Mês</option>
                                     </select>
 
                                 </div>
-                                <div>
-                                    <select name="" class="form__input" id="">
+                                <div class="col-right">
+                                    <select name="" class="form__input formcol formsubtitle cardexp" id="">
                                         <option value="">Ano</option>
                                     </select>
                                 </div>
@@ -114,19 +112,19 @@
                             </div>
                         </div>
                         <div>
-                            <div>
+                            <div class="col-left">
                                 <label for="card__number">Número do Cartão</label>
-                                <input type="text" placeholder="555 555 555 5555">
+                                <input type="text" class="form__input formcol formsubtitle" placeholder="555 555 555 5555">
                             </div>
-                            <div>
+                            <div class="col-right">
                                 <label for="security_code">Código de Segurança</label>
-                                <input type="text" id="security_code" placeholder="XXX">
+                                <input type="text" class="form__input formcol formsubtitle" id="security_code" placeholder="XXX">
 
                             </div>
 
                         </div>
                     </div>
-                    <hr>
+                    <hr class="divisor">
 
                     <div>
 
@@ -134,7 +132,7 @@
                             <span>Seu cartão será debitado em R$ 49,00</span>
                         </div>
                         <div>
-                            <button> Realizar Matrícula</button>
+                            <button class="btn"> Realizar Matrícula</button>
                         </div>
                         <div>
                             <span>Informações seguras e criptografadas</span>
@@ -147,7 +145,7 @@
 
         <div class="footer__page">
 
-            <div>
+            <div class="textfooter">
                 <span>Vinicius Cézar de Oliveira - 2020</span>
             </div>
 
