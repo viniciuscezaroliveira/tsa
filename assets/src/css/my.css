@@ -10,6 +10,10 @@ body{
     font-family: myFirstFont;
 }
 
+div span{
+    color: gray
+}
+
 /* Navbar Itens */
 .nav__bar{
     width:100%;
@@ -60,8 +64,16 @@ body{
     display: grid;
     grid-template-areas:
         'header header header header header header'
+        'colf colf colf colr colr colr'
         'left main main main main right'
         'footer footer footer footer footer footer';
+    grid-gap: 10px;
+    padding: 0px;
+}
+.grid__cols {
+    display: grid;
+    grid-template-areas:
+        'left left right right';
     grid-gap: 10px;
     padding: 0px;
 }
@@ -71,17 +83,49 @@ label{
     color: #445566;
     display: block;
     text-align: left;
+    padding-top: 10px;
+    
+}
+label.inline{
+    display: inline-block;
 }
 .form__input{
+    width: 99%;
+    height:35px;
+    font-size: 18px;
+    color: #EFF4F0;/* ERRADO */
+    color: #000;
+    background: #EFF4F9;
+    box-shadow:  0px 2px 2px rgba(187, 204, 221, 0.4);
+    border: none;
+    text-transform: capitalize;
+    
+}
+.form__input__error{
     width: 100%;
     height:35px;
     font-size: 24px;
     color: #EFF4F0;/* ERRADO */
     color: #000;
     background: #EFF4F9;
-    box-shadow:  0px 2px 2px rgba(187, 204, 221, 0.4);
+    outline-color: red;
+    box-shadow:  0px 0px 20px #a80606e5;
     border: none;
 }
+.form__input__error:focus{
+    outline-color: red;
+}
+
+
+.form__input__error_none__display{
+    display: none;
+    color: #000;
+}
+.form__input__error__display{
+    display: block;
+    color: #000;
+}
+
 
 .form__page { 
     grid-area: main; 
@@ -97,18 +141,49 @@ label{
 
 .formsubtitle{
     font-size:15px;
+    color: gray;
 }
 .formcol{
     width:100%;
+   
 }
 /* Cols */
+.formcol .col__inline__left{
+    display: inline-block;
+    width: 45.26785469%;
 
-.col-left{
-    display: inline-block;
-    margin-right:15px;
 }
-.col-right{
+.formcol .col__inline__right{
     display: inline-block;
+    padding-left: 4%;
+    width: 49.6679668%;
+}
+.formcol .col__inline__left__3{
+    display: inline-block;
+    width: 40%;
+
+}
+.formcol .col__inline__right__3{
+    display: inline-block;
+    width: 49.2661%;
+    padding-left: 10%;
+
+}
+.formcol .col__inline__right__3 .div__left{
+    display: inline-block;
+    width: 45%;
+
+
+}
+.formcol .col__inline__right__3 .div__right{
+    display: inline-block;
+    width: 45%;
+    padding-left: 8.51%;
+
+}
+
+select{
+    box-sizing: border-box;
 }
 /* Divisor */
 .divisor{
@@ -134,27 +209,46 @@ label{
 }
 /* Btn */
 
+
 .btn{
     background:#1188EE;
     color:#FFF;
     width:250px;
     height:40px;
-    border-radius:10%;
-    font-size:25px;
+    border-radius:5px;
+    font-size:15px;
+    border: none;
+  
 }
+.padding__sorting{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.font__sorting span{
+font-size: 10px;
+
+}
+
 /* Footer */
 
 .footer__page { 
     grid-area: footer; 
-    background: #1188EE;
+    background-color: #1188EE;
+    position: relative;
+    width: 100%;
     height: 90px;
 }
 
 .textfooter{
-    margin-top:35px;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+     
+}
+.textfooter span{
     color:#FFF;
-    margin-left:35px;
-    font-size:20px;
+    font-size:15px; 
 }
 
 
