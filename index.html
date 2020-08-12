@@ -11,167 +11,38 @@
 <body>
     <nav class="nav__bar">
         <ul>
-            <li><a href="#">Lista</a> </li>
-            <li><a href="#">Cadastro</a> </li>
+            <li><a href="lista.html">Lista</a> </li>
+            <li><a href="cadastro.html">Cadastro</a> </li>
         </ul>
     </nav>
     <div class="grid__container">
 
 
         <div class="header__page">
-            <p class="header__title">Cadastro</p>
+            <p class="header__title">Página Inicial</p>
         </div>
 
 
         <div class="form__page">
-            <form action="" method="post" onsubmit="return frmValid(this);" autocomplete="off">
-                <div>
-                    <label for="name" class="formtitle">Nome</label>
-                    <input type="text" name="name" class="form__input" id="name" oninput="validInputWord(this)">
-                    <label for="" id="errorinputname" class="form__input__error_none__display">Apenas Letras são
-                        permitidas</label>
+            <div class="formcol">
+                <div class="col__inline__left">
+                    <button class="btn">Cadastro</button>
                 </div>
-                <div>
-                    <label for="name" class="formtitle">Email</label>
-                    <input type="email" name="" class="form__input" id="email">
-
-                </div>
-                <div>
-                    <label for="name" class="formtitle">CPF</label>
-                    <input type="text" class="form__input" id="cpf" oninput="validInputNumber(this, true)" name="cpf"
-                        placeholder="111.111.111-01">
-                    <label for="" id="errorinputcpf" class="form__input__error_none__display">Apenas números são
-                        permitidos</label>
-
-                </div>
-                <div class="formcol">
-                    <div class="col__inline__left">
-                        <label for="">Endereco</label>
-                        <input type="text" placeholder="endereco" class="form__input">
-                    </div>
-                    <div class="col__inline__right">
-                        <label for="">Estado</label>
-                        <select name="" class="form__input  formsubtitle" id="uf" onchange="loadCity(this)">
-                            <option value="" class="">Selecione o Estado</option>
-                        </select>
-                    </div>
+                <div class="col__inline__right">
+                    <button class="btn">Lista</button>
                 </div>
 
-
-
-                <div class="formcol">
-                    <div class="col__inline__left">
-                        <label for="cep" class="formtitle">Cep</label>
-                        <input type="text" class="form__input formsubtitle" id="cep" name="cep" placeholder="22.222-000"
-                            oninput="validInputNumber(this)">
-                        <label for="" id="errorinputcep" class="form__input__error_none__display">Apenas números são
-                            permitidos</label>
-
-                    </div>
-                    <div class="col__inline__right">
-                        <label for="name" class="formtitle">Cidade</label>
-                        <select name="" class="form__input formsubtitle" id="city">
-                            <option value="" class="">Selecione a Cidade</option>
-                        </select>
-
-                    </div>
-                </div>
-
-                <div>
-
-
-                    <div>
-                        <label for="" class="payamenttitle">Forma de pagamento</label>
-                        <hr class="divisor">
-                    </div>
-
-
-                    <div class="formcol">
-                        <div class="col__inline__left">
-                            <input type="radio" id="payament_form_credit" value="credit" name="payament_form">
-                            <label for="payament_form_credit" class="inline">Cartão de Crédito</label>
-
-                        </div>
-                        <div class="col__inline__right">
-                            <input type="radio" id="payament_form_boleto" value="boleto" name="payament_form">
-                            <label for="payament_form_boleto" class="inline"">Boleto Bancário</label>
-
-                        </div>
-                    </div>
-                 
-                            
-                        <div class=" formcol">
-                                <div class="col__inline__left__3">
-                                    <label for="card__name">Nome no Cartão</label>
-                                    <input type="text" id="card__name" class="form__input formcol formsubtitle"
-                                        placeholder="Nome impresso no cartão" oninput="validInputWord(this)">
-                                </div>
-                                <div class="col__inline__right__3">
-                                    <label for="expiration__date">Data de expiração</label>
-                                    <div style="width: 100%;">
-                                        <div class="div__left">
-                                            <select name="" class="form__input formsubtitle" id="">
-                                                <option value="" class="">Mês</option>
-                                            </select>
-                                        </div>
-                                        <div class="div__right">
-                                            <select name="" class="form__input formsubtitle" id="">
-                                                <option value="" class="=">Ano</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
-
-
-                        </div>
-
-                    </div>
-
-                    <div class="formcol">
-                        <div class="col__inline__left">
-                            <label for="card__number">Número do Cartão</label>
-                            <input type="text" class="form__input formsubtitle" name="card__number"
-                                placeholder="555 555 555 5555" oninput="validInputNumber(this)">
-                        </div>
-                        <div class="col__inline__right">
-                            <label for="security_code">Código de Segurança</label>
-                            <input type="text" class="form__input formsubtitle" id="security_code" placeholder="XXX"
-                                oninput="validInputNumber(this)">
-
-                        </div>
-
-                    </div>
-
-                    <hr class="divisor" />
-
-                    <div>
-
-                        <div>
-                            <span>Seu cartão será debitado em R$ 49,00</span>
-                        </div>
-                        <div class="padding__sorting">
-                            <button class="btn"> Realizar Matrícula</button>
-                        </div>
-                        <div class="font__sorting">
-                            <span>Informações seguras e criptografadas</span>
-                        </div>
-                    </div>
-                </div>
-        </div>
-        </form>
-    </div>
-
-
-    <div class="footer__page">
-
-        <div class="textfooter">
-            <span>Vinicius Cézar de Oliveira - 2020</span>
+            </div>
         </div>
 
-    </div>
+
+        <div class="footer__page">
+
+            <div class="textfooter">
+                <span>Vinicius Cézar de Oliveira - 2020</span>
+            </div>
+
+        </div>
     </div>
 
     <script type="text/javascript" src="assets/src/file/bruf.json"></script>

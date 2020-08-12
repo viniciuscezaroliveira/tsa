@@ -64,19 +64,13 @@ div span{
     display: grid;
     grid-template-areas:
         'header header header header header header'
-        'colf colf colf colr colr colr'
+        'left main main main main right'
         'left main main main main right'
         'footer footer footer footer footer footer';
     grid-gap: 10px;
     padding: 0px;
 }
-.grid__cols {
-    display: grid;
-    grid-template-areas:
-        'left left right right';
-    grid-gap: 10px;
-    padding: 0px;
-}
+
 /* Form Itens */
 
 label{
@@ -166,7 +160,7 @@ label.inline{
 .formcol .col__inline__right__3{
     display: inline-block;
     width: 49.2661%;
-    padding-left: 10%;
+    padding-left:9.999%;
 
 }
 .formcol .col__inline__right__3 .div__left{
@@ -251,4 +245,33 @@ font-size: 10px;
     font-size:15px; 
 }
 
+.table {
+    border-collapse: collapse;
+    width: 100%;
 
+   
+  }
+.div__table__padding{
+    padding-top: 30px;
+    padding-bottom: 43%;
+}
+  
+  .table td, .table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 13px;
+  }
+  
+.table tr:nth-child(even)
+{background-color: #f2f2f2;}
+  
+.table tr:hover {background-color: #ddd;}
+  
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: transparent;
+    color: black;
+
+  }
