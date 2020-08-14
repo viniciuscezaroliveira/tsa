@@ -32,11 +32,12 @@
 
             <div>
                 <label for="">Nome do Cliente</label>
-                <input type="text" class="form__input" id="search_client">
+                <input type="text" class="form__input" id="search_client" oninput="loadTable()"
+                    placeholder="Digite para pesquisar (nome ou email ou cpf)">
             </div>
 
             <div class="div__table__padding">
-                <table class="table">
+                <table class="table" id="table">
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -46,13 +47,8 @@
                         </tr>
 
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Vinicius Cezar de Oliveira</td>
-                            <td>v.cezar21@gmail.com</td>
-                            <td>107.755.726-40</td>
-                            <td>21-12-1991</td>
-                        </tr>
+                    <tbody id="trtable">
+
                     </tbody>
                 </table>
             </div>

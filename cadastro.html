@@ -29,33 +29,42 @@
                     <label for="name" class="formtitle">Nome</label>
                     <input type="text" name="name" class="form__input" id="name" oninput="validInputWord(this)"
                         required>
-                    <label for="" id="errorinputname" class="form__input__error_none__display">Apenas Letras são
-                        permitidas</label>
+                    <div id="errorinputname">
+                        <label for="" class="form__input__error_none__display">Apenas Letras são
+                            permitidas</label>
+                    </div>
+
                 </div>
                 <div>
                     <label for="name" class="formtitle">Email</label>
                     <input type="email" name="email" class="form__input" id="email" oninput="validInputEmail(this)"
                         required>
-                    <label for="" id="errorinputemail" class="form__input__error_none__display">O email está invalido,
-                        por favor verifique!</label>
+                    <div id="errorinputemail">
+                        <label for="" class="form__input__error_none__display">O email está invalido,
+                            por favor verifique!</label>
+                    </div>
+
                 </div>
                 <div>
-                    <label for="name" class="formtitle">CPF</label>
+                    <label for="cpf" class="formtitle">CPF</label>
                     <input type="text" class="form__input" id="cpf" oninput="validInputNumber(this, true)" name="cpf"
                         placeholder="111.111.111-01" onkeydown="javascript: cpfMask( this, cpfMask );" maxlength="14"
                         required>
-                    <label for="" id="errorinputcpf" class="form__input__error_none__display">Apenas números são
-                        permitidos</label>
+                    <div id="errorinputcpf">
+                        <label for="" class="form__input__error_none__display">Apenas números são
+                            permitidos</label>
+                    </div>
+
 
                 </div>
                 <div class="formcol">
                     <div class="col__inline__left">
-                        <label for="">Endereco</label>
+                        <label for="address">Endereco</label>
                         <input type="text" placeholder="endereco" name="address" id="address" class="form__input "
                             required>
                     </div>
                     <div class="col__inline__right">
-                        <label for="">Estado</label>
+                        <label for="uf">Estado</label>
                         <select name="uf" class="form__input  " id="uf" onchange="loadCity(this)" required>
                             <option value="" class="">Selecione o Estado</option>
                         </select>
@@ -68,8 +77,8 @@
                     <div class="col__inline__left">
                         <label for="cep" class="formtitle">Cep</label>
                         <input type="text" class="form__input formsubtitle" id="cep" name="cep" placeholder="22.222-000"
-                            oninput="validInputNumber(this)" onkeydown="javascript: cepMask( this, cepMask );"
-                            maxlength="10" required>
+                            oninput="validCep(this)" onkeydown="javascript: cepMask( this, cepMask );" maxlength="10"
+                            minlength="10" required>
 
                     </div>
 
@@ -117,9 +126,8 @@
                     <div class=" formcol" id="dataCardOne">
                         <div class="col__inline__left__3">
                             <label for="card__name">Nome no Cartão</label>
-                            <input type="text" id="card__name" name="card__name"
-                                class="form__input formcol formsubtitle" placeholder="Nome impresso no cartão"
-                                oninput="validInputWord(this)">
+                            <input type="text" id="card__name" name="card__name" class="form__input  formsubtitle"
+                                placeholder="Nome impresso no cartão" oninput="validInputWord(this)">
 
                         </div>
                         <div class="col__inline__right__3">
@@ -141,9 +149,12 @@
 
 
                         </div>
-                        <label for="" id="errorinputcard__name" class="form__input__error_none__display">Apenas
-                            Letras são
-                            permitidas</label>
+                        <div id="errorinputcard__name">
+                            <label for="" class="form__input__error_none__display">Apenas
+                                Letras são
+                                permitidas</label>
+                        </div>
+
 
 
                     </div>
@@ -154,17 +165,29 @@
                     <div class="col__inline__left">
                         <label for="card__number">Número do Cartão</label>
                         <input type="text" class="form__input formsubtitle" name="card__number" id="card__number"
-                            placeholder="555 555 555 5555" oninput="validInputNumber(this)"
+                            placeholder="555 555 555 5555" oninput="checkCard(this)"
                             onkeydown="javascript: cardNumberMask( this, cardNumberMask );" maxlength="19">
+
                     </div>
+
                     <div class="col__inline__right">
                         <label for="security_code">Código de Segurança</label>
                         <input type="text" class="form__input formsubtitle" id="security_code" name="security_code"
                             placeholder="XXX" oninput="validInputNumber(this)" maxlength="3">
 
                     </div>
-                    <div id="errorinputcard__number">
-                        <label for="" class="form__input__error_none__display">Apenas números são
+
+                </div>
+                <div class="formcol" id="dataCardTwo">
+
+                    <div id="errorinputcard__number" class="col__inline__left">
+                        <label for="" class=" form__input__error_none__display">Apenas
+                            números são
+                            permitidos</label>
+                    </div>
+                    <div id="errorinputsecurity_code" class="col__inline__right">
+                        <label for="" class=" form__input__error_none__display">Apenas
+                            números são
                             permitidos</label>
                     </div>
 
