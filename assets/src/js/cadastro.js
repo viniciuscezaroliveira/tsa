@@ -1,6 +1,7 @@
-document.querySelector("#name").focus();
+
 
 //START REGION ERROR FORMS
+//exibe o erro na tela
 const showError = (element) => {
     element.classList.remove("form__input")
     element.classList.add("form__input__error")
@@ -9,6 +10,7 @@ const showError = (element) => {
     element.focus()
 }
 
+// Oculta o erro na tela
 const hideError = (element) => {
 
     element.classList.remove("form__input__error");
@@ -22,6 +24,10 @@ const hideError = (element) => {
 
 
 //REGION MASCARAS
+/**
+ * 
+ * Mascara para o cpf
+ */
 const cpfMask = (strCpf) => {
 
 
@@ -33,6 +39,10 @@ const cpfMask = (strCpf) => {
 
 }
 
+/**
+ * 
+ * Mascara para o cep
+ */
 const cepMask = (strCep) => {
     strCep.value = strCep.value.replace(/\D/g, "")
     strCep.value = strCep.value.replace(/(\d{2})(\d)/, "$1.$2")
@@ -40,7 +50,10 @@ const cepMask = (strCep) => {
     return strCep.value
 
 }
-
+/**
+ * 
+ * Mascara para o numero do cartao de credito
+ */
 const cardNumberMask = (strCardNumber) => {
     strCardNumber.value = strCardNumber.value.replace(/\D/g, "")
     strCardNumber.value = strCardNumber.value.replace(/(\d{4})(\d)/, "$1 $2")
@@ -54,6 +67,7 @@ const cardNumberMask = (strCardNumber) => {
 
 
 //REGION VALIDA INPUTS
+//valida cpf
 const cpfValid = (strCpf) => {
 
     var soma;
@@ -101,6 +115,7 @@ const cpfValid = (strCpf) => {
     return true;
 }
 
+//valida se input tem caracter numerico
 const validInputWord = (val) => {
     let regExp = new RegExp(/^[a-zA-Záéíóúâêôãõ ]+$/)
 
@@ -114,18 +129,22 @@ const validInputWord = (val) => {
     }
 }
 
+//remove caracteres especiais do cpf
 const regExpCpfReplace = (strCpf) => {
     let regExpCpf = new RegExp(/[.,-]/g)
     strCpf = strCpf.replace(regExpCpf, "")
     return strCpf
 }
 
+//remove caracter especial .,- 
 const regExpNumberReplace = (strNumber) => {
     let regExpNumber = new RegExp(/[.,- ]/g)
     strNumber = strNumber.replace(regExpNumber, "")
     return strNumber
 }
 
+//valida se o cep está valido
+//codigo retirado do GITHUB
 const validCep = (val) => {
     // Caso o CEP não esteja nesse formato ele é inválido!
     var objER = /^[0-9]{2}.[0-9]{3}-[0-9]{3}$/;
@@ -145,7 +164,8 @@ const validCep = (val) => {
 
 }
 
-
+//valida se o cartao digitado é valido
+//retirado do GITHUB
 const checkCard = (val) => {
     if (val.value.length == 19) {
         var msg = Array();
@@ -229,28 +249,33 @@ const checkCard = (val) => {
         }
 
         if (msg.length > 0) {
+            showError(val)
+            document.querySelector(`#errorinput${val.name} label`).innerHTML = "Cartão inválido"
+            return false
 
-            console.log(msg);
 
         } else {
-
-            console.log(cardNumber);
             showError(val)
             if (total % 10 == 0) {
                 hideError(val)
-                // console.log("Cartão válido: (" + total + ")");
-                // console.log("Tipo: " + tipo);
-                // console.log("Operadora: " + operadora);
                 return true
             } else {
+                showError(val)
                 document.querySelector(`#errorinput${val.name} label`).innerHTML = "Cartão inválido"
                 return false
             }
         }
     }
+    else {
+        showError(val)
+        document.querySelector(`#errorinput${val.name} label`).innerHTML = "Cartão inválido"
+        return false
+
+    }
 
 }
 
+//valida se input contem somente caracters numericos
 const validInputNumber = (val, cpf = false) => {
     let regExp = new RegExp(/^[0-9]+$/)
 
@@ -261,7 +286,6 @@ const validInputNumber = (val, cpf = false) => {
         return false
     }
     else if (regExp.test(val.value) && cpf == false) {
-        console.log(val)
         hideError(val)
         return true
     }
@@ -287,6 +311,8 @@ const validInputNumber = (val, cpf = false) => {
 
 }
 
+//valida campo do email
+//codigo retirado do GITHUB
 const validInputEmail = (val) => {
     pre = val.value.substring(0, val.value.indexOf("@"))
     pos = val.value.substring(val.value.indexOf("@") + 1, val.value.lenght)
@@ -312,6 +338,8 @@ const validInputEmail = (val) => {
     }
 }
 
+/*exibe dados do cartao de credito se a opcao escolhida
+fo a de cartao de credito */
 const enableValuesCreditCard = () => {
     document.querySelector("#payament_form_credit").checked = true
     let dataCardOne = document.querySelector('#dataCardOne')
@@ -334,6 +362,9 @@ const enableValuesCreditCard = () => {
 
 }
 
+/* oculta dados de cartao de credito caso a opcao 
+escolhida seja boleto
+*/
 const disableValuesCreditCard = () => {
     let dataCardOne = document.querySelector('#dataCardOne')
     let dataCardTwo = document.querySelector('#dataCardTwo')
@@ -351,7 +382,7 @@ const disableValuesCreditCard = () => {
 //END REGION
 
 //REGION LOAD
-
+//carrega todas os estados do Brasil, no select
 const loadUf = () => {
     //A VAR DATA VEM DO ARQUIVO BRUF.JSON, IMPORTADA NO INDEX.HTML
     let selectObj = document.getElementById('uf')
@@ -370,7 +401,9 @@ const loadUf = () => {
 
 
 }
-
+/*carrega todas as cidades referente ao estado escolhido...
+obs: função chamada, após a escolha da UF
+*/
 const loadCity = (uf) => {
     //A VAR DATA VEM DO ARQUIVO BRUF.JSON, IMPORTADA NO INDEX.HTML
 
@@ -391,6 +424,10 @@ const loadCity = (uf) => {
     }
 }
 
+/**
+ * carrega o mes e depois o ano de validade do cartao
+ * obs: Existe uma validação do mes atual com o ano atual
+ */
 const loadMonthDataCard = () => {
 
     let selectObjMonth = document.querySelector("#monthDataCard")
@@ -407,7 +444,11 @@ const loadMonthDataCard = () => {
 
 
 }
-
+/**
+ * 
+ * Metodo chamado ao escolher o mes do vencimento do cartao de credito
+ * se o mes escolhido for menor que o mes atual, o ano atual é descartado
+ */
 const loadYearDataCard = (obj) => {
     let now = new Date
     let selectObjYear = document.querySelector("#yearDataCard")
@@ -434,6 +475,10 @@ const loadYearDataCard = (obj) => {
 
 
 //REGION VALIDA FORM
+/**
+ * 
+ * Valida formulario e todos os campos obrigatorios
+ */
 const frmValid = (frm) => {
 
 
@@ -458,6 +503,9 @@ const frmValid = (frm) => {
 
             if (checkCard(frm.card__number) &&
                 validInputWord(frm.card__name) &&
+                frm.card__name.value != "" &&
+                frm.security_code.value != "" &&
+                frm.card__number.value != "" &&
                 validInputNumber(frm.security_code)) {
                 payament_form = {
                     'credit': {
@@ -470,28 +518,39 @@ const frmValid = (frm) => {
                 }
 
             }
-            else
+            else {
+                alert("Preencha corretamente as formas de pagamento!")
                 return false
-
+            }
 
         }
-        else if (frm.payament_form.value == 'boleto')
+        else if (frm.payament_form.value == 'boleto') {
             payament_form = frm.payament_form.value
+        }
+        else {
+            alert("Preencha corretamente as formas de pagamento!")
+            return false
+        }
+
+        if (payament_form == "") {
+            alert("Preencha corretamente as formas de pagamento!")
+            return false
+        }
 
         frmJson = {
+            "id": (JSON.parse(localStorage.getItem(`register`)) != null ? JSON.parse(localStorage.getItem(`register`)).length + 1 : 1),
             "name": frm.name.value,
             "email": frm.email.value,
             "cpf": frm.cpf.value,
             "address": frm.address.value,
             "uf": frm.uf.value,
-            "street": frm.city.value,
+            "city": frm.city.value,
             "cep": frm.cep.value,
             "payament_form": payament_form,
             "create": dateNow
         }
-        console.log(frmJson)
 
-        if (localStorage.getItem(`register`) != null && localStorage.getItem(`register`) != undefined) {
+        if (localStorage.getItem(`register`) != null || localStorage.getItem(`register`) != undefined) {
             let registers = JSON.parse(localStorage.getItem(`register`))
             registers.push(frmJson)
             localStorage.setItem(`register`, JSON.stringify(registers))
@@ -502,22 +561,36 @@ const frmValid = (frm) => {
             localStorage.setItem(`register`, JSON.stringify(registers))
         }
 
-        //alert("O cadastro foi realizado com sucesso!")
-        return false
-        //document.location.reload(true)
+        alert("O cadastro foi realizado com sucesso!")
+
+        document.location.reload(true)
 
     }
-    else return false
+    else
+        return false
 
 
 }
 //ENDREGION
 
+
+
+
+/** 
+ * os metodos abaixo são chamados no carregamento da pagina
+ * */
+
+
+
 // REGION DOCUMENT DEFAULT LOAD
-//Carrega todas as UF do bruf.json
+
+//Carrega todas as UF do bruf.json 
+
 loadUf()
 //Desabilitar campos do  cartao de credito
 enableValuesCreditCard()
 //Carrega os meses
 loadMonthDataCard()
 // ENDREGION
+//inicia o cursor no input name
+document.querySelector("#name").focus();
