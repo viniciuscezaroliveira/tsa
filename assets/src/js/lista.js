@@ -130,7 +130,6 @@ const loadDataModal = (objId) => {
 }
 
 
-
 /**
  * Metodos chamados no carregamento da pagina
  */
