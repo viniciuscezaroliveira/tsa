@@ -179,7 +179,7 @@ const checkCard = (val) => {
 
             var total = 0;
             var arr = Array();
-            var operadora = ""
+
             for (i = 0; i < cardNumber.length; i++) {
                 if (i % 2 == 0) {
                     dig = cardNumber[i] * 2;
@@ -203,6 +203,7 @@ const checkCard = (val) => {
 
             switch (parseInt(cardNumber[0])) {
                 case 0:
+                    showError(val)
                     document.querySelector(`#errorinput${val.name} label`).innerHTML = "Cartão inválido"
                     break;
                 case 1:
@@ -242,6 +243,7 @@ const checkCard = (val) => {
                     operadora = "";
                     break
                 default:
+                    showError(val)
                     document.querySelector(`#errorinput${val.name} label`).innerHTML = "Cartão inválido"
                     break;
             }
@@ -255,7 +257,6 @@ const checkCard = (val) => {
 
 
         } else {
-            showError(val)
             if (total % 10 == 0) {
                 hideError(val)
                 return true
@@ -509,10 +510,10 @@ const frmValid = (frm) => {
                 validInputNumber(frm.security_code)) {
                 payament_form = {
                     'credit': {
-                        'card_number': frm.card__name.value,
+                        'card_name': frm.card__name.value,
                         'expiration_date_month': frm.monthDataCard.value,
                         'expiration_date_year': frm.yearDataCard.value,
-                        'vard_number': frm.card__number.value,
+                        'card_number': frm.card__number.value,
                         'security_code': frm.security_code.value
                     }
                 }

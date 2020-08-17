@@ -27,8 +27,6 @@ const loadTable = () => {
 
 
                 ) {
-                    //console.log((element["name"].toLowerCase()).replace(/\s/g, ''))
-                    //console.log(element["email"].toLowerCase().search(inputSearch.toLowerCase()))
                     insetCellTable(element)
                 }
 
@@ -71,6 +69,8 @@ const insetCellTable = (element) => {
 
     newRow.setAttribute('id', element["id"])
     newRow.setAttribute('onclick', `loadDataModal(${element["id"]}) `)
+    newRow.setAttribute('title', `Clique para exibir detalhes`)
+
 }
 
 /**
@@ -98,9 +98,8 @@ const loadDataModal = (objId) => {
             document.querySelector("#name").innerHTML = obj[i].name
             document.querySelector("#cpf").innerHTML = obj[i].cpf
             document.querySelector("#address").innerHTML = `${obj[i].address}, ${obj[i].city} - ${obj[i].uf}`
-            document.querySelector("#payament_form").innerHTML = obj[i].payament_form
-            document.querySelector("#name").innerHTML = obj[i].name
-            console.log(obj[i]);
+            document.querySelector("#payament_form").innerHTML = (obj[i].payament_form.length == 6 ? obj[i].payament_form : `Cartão de Crédito: <br> Nome no cartão: ${obj[i].payament_form.credit.card_name} <br> Número do cartão: ${obj[i].payament_form.credit.card_number}`)
+            console.log()
         }
 
 

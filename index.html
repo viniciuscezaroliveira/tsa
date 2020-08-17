@@ -27,8 +27,8 @@
             <form action="" method="post" onsubmit="event.preventDefault(); frmValid(this);">
                 <div>
                     <label for="name" class="formtitle">Nome</label>
-                    <input type="text" name="name" class="form__input" id="name" oninput="validInputWord(this)"
-                        required>
+                    <input type="text" name="name" class="form__input formsubtitle" id="name"
+                        oninput="validInputWord(this)" required>
                     <div id="errorinputname">
                         <label for="" class="form__input__error_none__display">Apenas Letras são
                             permitidas</label>
@@ -37,8 +37,8 @@
                 </div>
                 <div>
                     <label for="name" class="formtitle">Email</label>
-                    <input type="email" name="email" class="form__input" id="email" oninput="validInputEmail(this)"
-                        required>
+                    <input type="email" name="email" class="form__input formsubtitle" id="email"
+                        oninput="validInputEmail(this)" required>
                     <div id="errorinputemail">
                         <label for="" class="form__input__error_none__display">O email está invalido,
                             por favor verifique!</label>
@@ -47,9 +47,9 @@
                 </div>
                 <div>
                     <label for="cpf" class="formtitle">CPF</label>
-                    <input type="text" class="form__input" id="cpf" oninput="validInputNumber(this, true)" name="cpf"
-                        placeholder="111.111.111-01" onkeydown="javascript: cpfMask( this, cpfMask );" maxlength="14"
-                        required>
+                    <input type="text" class="form__input formsubtitle" id="cpf" oninput="validInputNumber(this, true)"
+                        name="cpf" placeholder="111.111.111-01" onkeydown="javascript: cpfMask( this, cpfMask );"
+                        maxlength="14" required>
                     <div id="errorinputcpf">
                         <label for="" class="form__input__error_none__display">Apenas números são
                             permitidos</label>
@@ -60,13 +60,13 @@
                 <div class="formcol">
                     <div class="col__inline__left">
                         <label for="address">Endereco</label>
-                        <input type="text" placeholder="endereco" name="address" id="address" class="form__input "
-                            required>
+                        <input type="text" placeholder="endereco" name="address" id="address"
+                            class="form__input formsubtitle " required>
                     </div>
                     <div class="col__inline__right">
                         <label for="uf">Estado</label>
-                        <select name="uf" class="form__input  " id="uf" onchange="loadCity(this)" required>
-                            <option value="" class="">Selecione o Estado</option>
+                        <select name="uf" class="form__input formsubtitle " id="uf" onchange="loadCity(this)" required>
+                            <option value="" class="formsubtitle">Selecione o Estado</option>
                         </select>
                     </div>
                 </div>
